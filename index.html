@@ -1,0 +1,90 @@
+<html>
+	<head>
+	</head>
+
+	<header class = "header"> Here is an example style for My Calculator 
+		
+	</header>
+
+	<p id = "instuctions">
+		This calculator will take intfix equation and transfer it to a postfix equation, then through 
+		postfixinterpreter function, it will give us the right answer. 
+
+
+	</p>
+
+	<body >
+
+
+	<form class = "centered">
+		<textarea id = "userInput" placeholder = "Please type in your equation"></textarea>
+	</form>
+
+	<p>For example: if we type in 3 + 5 </p>
+	<p> We will see 8 in the next line<p>
+
+	<p id = "answerBox"> Answer is:  </p>
+	<p>You might wonder how it works?</p>
+	<p> First I will store 3 + 5 as a string and transfor it to an postfix string</p>
+	<p id = "postfixBox" > postfix string will appare here</p>
+	<p>Then postfixinterpreter function will read the operator and numbers, then generate the answer</p>
+
+
+	
+
+	</body>
+	
+	<style type="text/css">
+	.header{
+		width: 100%;
+		height: 150px;
+		background-color: #F5F5F5;
+		margin: 0
+
+	}
+	#userInput{
+		width: 300px;
+		height: 40px;
+		margin-top:  200px; 
+	}
+
+	.centered{
+		position: fixed;
+	
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	
+
+	</style>
+	<script type = "text/javascript"src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script type="text/javascript">
+
+	//var myCalculator = new Calculator();
+
+	$( "#userInput" ).keypress(function( event ) {
+   if ( event.which == 13 ) {
+     var inputStr = document.getElementById('userInput').value
+      console.log(inputStr);
+      var intFixToPostFix = myCalculator.intFixToPostFix(inputStr);
+
+      var ans = myCalculator.postfixinterpreter(intFixToPostFix);
+      console.log(ans);
+      document.getElementById("postfixBox").innerHTML=  "postfix string is :" + intFixToPostFix;
+      document.getElementById("answerBox").innerHTML=  "answer is :" + ans;
+
+   }
+   
+ });
+
+
+
+	</script>
+	<script type="text/javascript" src="calculator.js"></script>
+	<script type="text/javascript">
+
+
+	</script>
+
+</html>
